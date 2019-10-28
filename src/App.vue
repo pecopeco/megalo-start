@@ -58,7 +58,6 @@ export default {
 </script>
 
 <style lang="stylus">
-@import "./color"
 
 html, body, #app {
   height 100%

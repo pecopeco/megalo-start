@@ -2,7 +2,7 @@
   .home
     .card-wrap(@click="getData")
       card(:text="text")
-    .time {{time | formatTime('/', '/', '', true, true)}}
+    .time.theme {{time | formatTime('/', '/', '', true, true)}}
     button(@getuserinfo="getUserInfo" open-type="getUserInfo") 登录
 </template>
 
@@ -49,7 +49,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import "~@/color"
 
 .home {
 }

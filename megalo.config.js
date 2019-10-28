@@ -7,7 +7,8 @@ module.exports = {
 
   configureWebpack: config => {
     // 你可以在这里粗放的修改webpack的配置并返回
-    console.log('configureWebpack执行了')
+
+    //引入pug
     config = {
       module: {
         rules: [
@@ -28,7 +29,10 @@ module.exports = {
   chainWebpack: chainConfig => {
     // 你可以在这里通过 https://github.com/neutrinojs/webpack-chain 来精细的修改webpack配置
     // console.log('chainWebpack执行了', chainConfig.toString())
+
     const path = require('path')
+
+    // 静态资源配置
     function resolve (_path) {
       return path.resolve(process.cwd(), _path)
     }
@@ -40,6 +44,28 @@ module.exports = {
       })
       return oldArgs
     })
+
+    // 全局引入color.styl
+    function resolve (dir) {
+      return path.join(__dirname, dir)
+    }
+
+    function addStyleResource (rule) {
+      rule.use('style-resource')
+      .loader('style-resources-loader')
+      .options({
+          patterns: [
+              path.resolve(__dirname, 'src/color.styl')
+          ]
+      })
+    }
+    
+    const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
+    types.forEach(type => addStyleResource(chainConfig.module.rule('stylus').oneOf(type)))
+    chainConfig.resolve.alias
+      .set('pages', resolve('src/pages'))
+      .set('common', resolve('src/common'))
+      .set('components', resolve('src/components'))
   },
   // 原生小程序组件存放目录，默认为src/native
   // 如果你有多个平台的原生组件，你应当在此目录下再新建几个子文件夹，我们约定，子文件夹名和平台的名字一致:
