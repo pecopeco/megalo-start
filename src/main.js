@@ -4,7 +4,6 @@ import VHtmlPlugin from '@megalo/vhtml-plugin'
 import Vuex from 'vuex'
 import mixin from './mixin'
 import Fly from 'flyio/dist/npm/wx'
-import config from './config'
 
 Vue.use(VHtmlPlugin)
 Vue.use(Vuex)
@@ -13,7 +12,9 @@ Vue.mixin(mixin)
 const store = require('./store.js').default
 Vue.prototype.$store = store
 
-Vue.prototype.$config = config
+let config = {
+  api_url: 'https://mp.weixin.qq.com'
+}
 
 function request (url, form = {}, type) {
   let compleForm = form
@@ -22,7 +23,7 @@ function request (url, form = {}, type) {
   // }
   // Object.assign(compleForm, presetForm)
   let fly = new Fly()
-  return fly.request(url, compleForm, {
+  return fly.request(config.api_url + url, compleForm, {
     method: type,
     timeout: 5000
   }).then((res) => {

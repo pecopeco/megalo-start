@@ -1,6 +1,4 @@
 <script>
-import config from './config'
-
 export default {
   watch: {
     missingSkey (missingSkey) {
@@ -40,7 +38,7 @@ export default {
       })
     },
     async fetchSkey (code) {
-      let data = await this.$http.get(config.api_url + '/site/wx', { code: code })
+      let data = await this.$http.get('/site/wx', { code: code })
       if (data && data.skey) {
         wx.setStorageSync('token', data.skey)
         this.setCookie(data.skey)
@@ -51,7 +49,6 @@ export default {
     }
   },
   onLaunch () {
-    console.log(this.config)
     this.checkSession()
   }
 }

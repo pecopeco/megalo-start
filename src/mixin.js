@@ -40,7 +40,7 @@ export default {
       }, 100)
     },
     postUserInfo (userInfo) {
-      this.$http.post(this.$config.api_url + '/v1/profile/profile', {
+      this.$http.post('/v1/profile/profile', {
         info: userInfo
       })
     },
