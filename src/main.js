@@ -4,7 +4,9 @@ import VHtmlPlugin from '@megalo/vhtml-plugin'
 import Vuex from 'vuex'
 import mixin from './mixin'
 import Fly from 'flyio/dist/npm/wx'
+import MegaloRouterPatch from 'megalo-router-patch'
 
+Vue.use(MegaloRouterPatch)
 Vue.use(VHtmlPlugin)
 Vue.use(Vuex)
 Vue.mixin(mixin)

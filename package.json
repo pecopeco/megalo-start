@@ -34,6 +34,7 @@
     "@megalo/vhtml-plugin": "latest",
     "flyio": "^0.6.14",
     "megalo": "latest",
+    "megalo-router-patch": "^0.1.5",
     "octoparse": "^0.4.2",
     "pug": "^2.0.4",
     "pug-plain-loader": "^1.0.0",

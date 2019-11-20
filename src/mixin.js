@@ -25,14 +25,10 @@ export default {
   },
   methods: {
     go (url) {
-      wx.navigateTo({
-        url: url
-      })
+      this.$router.push(url)
     },
-    goBack (delta = 1) {
-      wx.navigateBack({
-        delta
-      })
+    goBack () {
+      this.$router.back()
     },
     toast (text, delay) {
       setTimeout(function () {
