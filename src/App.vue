@@ -56,7 +56,7 @@ export default {
 
 <style lang="stylus">
 
-html, body, #app {
+page {
   height 100%
   color #555555
 }
