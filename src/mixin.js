@@ -24,8 +24,8 @@ export default {
     }
   },
   methods: {
-    go (url) {
-      this.$router.push(url)
+    go (url, isTab = false) {
+      this.$router.push({ path: url, isTab: isTab })
     },
     goBack () {
       this.$router.back()
