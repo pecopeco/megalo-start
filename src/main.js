@@ -27,6 +27,8 @@ function delayRequest () {
   }, 300)
 }
 
+Vue.prototype.$fly = new Fly()
+
 function request (url, form = {}, type) {
   // 拦截重复请求
   if (requestUrl === url) {
@@ -39,8 +41,7 @@ function request (url, form = {}, type) {
   //   orgName: 123456
   // }
   // Object.assign(compleForm, presetForm)
-  let fly = new Fly()
-  return fly.request(config.api_url + url, compleForm, {
+  return Vue.prototype.$fly.request(config.api_url + url, compleForm, {
     method: type,
     timeout: 5000
   }).then((res) => {

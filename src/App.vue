@@ -45,7 +45,7 @@ export default {
       }
     },
     setCookie (token) {
-      this.$http.config.headers = { 'cookie': 'PHPSESSION=' + token }
+      this.$fly.config.headers = { 'cookie': 'PHPSESSION=' + token }
     }
   },
   onLaunch () {
@@ -72,6 +72,17 @@ image {
 }
 .bold {
   font-weight bold
+}
+.empty-tips,.loading {
+  display flex
+  align-items center
+  justify-content center
+  height 140px
+  font-size 14px
+  image {
+    width 30px
+    height 30px
+  }
 }
 button {
   display flex
