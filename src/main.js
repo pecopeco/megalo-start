@@ -24,6 +24,7 @@ let requestUrl, requestForm
 function delayRequest () {
   setTimeout(() => {
     requestUrl = ''
+    requestForm = {}
   }, 300)
 }
 
