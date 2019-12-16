@@ -126,6 +126,12 @@ export default {
       'pages/home/index',
       'pages/my/index'
     ],
+    window: {
+      backgroundTextStyle: 'light',
+      navigationBarBackgroundColor: '#fff',
+      navigationBarTitleText: 'title',
+      navigationBarTextStyle: 'black'
+    },
     tabBar: {
       color: '#333',
       selectedColor: '#007d37',
