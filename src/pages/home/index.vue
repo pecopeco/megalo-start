@@ -3,6 +3,7 @@
     .card-wrap(@click="getData")
       card(:text="text")
     .time.theme {{time | formatTime('/', '/', '', true, true)}}
+    van-loading.loading(type="circular" color="#1989fa")
     button(@getuserinfo="getUserInfo" open-type="getUserInfo") 登录
 </template>
 
@@ -22,7 +23,7 @@ export default {
   methods: {
     async getData () {
       console.log('start get')
-      let data = await this.$http.get(this.$config.api_url + '/search', { id: 1 })
+      let data = await this.$http.get('/search', { id: 1 })
       this.$store.dispatch('setUser', data || '')
     },
     getUserInfo () {

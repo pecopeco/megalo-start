@@ -3,8 +3,6 @@
     span my
     .content(v-if="data")
     .empty-tips(v-else-if="!loading") 暂无信息
-    .loading(v-if="!loading")
-      image(mode="scaleToFill" :src="loadingImg")
 </template>
 
 <script>

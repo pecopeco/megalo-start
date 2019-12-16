@@ -3,7 +3,6 @@ export default {
   },
   data () {
     return {
-      loadingImg: 'https://laoding.gif'
     }
   },
   filters: {

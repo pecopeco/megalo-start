@@ -29,7 +29,7 @@ function delayRequest () {
 }
 
 // 判断两个对象属性是否完全相同
-function isObjectValueEqual(objA, objB) {
+function isObjectValueEqual (objA, objB) {
   let aProps = Object.getOwnPropertyNames(objA)
   let bProps = Object.getOwnPropertyNames(objB)
   if (aProps.length !== bProps.length) {
@@ -149,6 +149,9 @@ export default {
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'megalo project',
       navigationBarTextStyle: 'black'
+    },
+    'usingComponents': {
+      'van-loading': '/native/vant/loading/index'
     }
   }
 }
