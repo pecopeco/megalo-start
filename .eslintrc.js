@@ -5,8 +5,12 @@ module.exports = {
     node: true
   },
   'extends': [
-    '@megalo/standard'
+    'plugin:vue/essential',
+    'eslint:recommended'
   ],
+  "rules": {
+    "no-console":"off"
+  },
   parserOptions: {
     parser: 'babel-eslint'
   }
