@@ -1,7 +1,7 @@
 <script>
 export default {
   watch: {
-    missingSkey (missingSkey) {
+    missingSkey () {
       // 检测skey是否意外丢失，尝试重新登录
       console.log('skey丢失，重新登录')
       this.doLogin()
@@ -59,6 +59,12 @@ export default {
 page {
   height 100%
   color #555555
+  font-size 16px
+  overflow auto
+  & > div {
+    min-height 100%
+    background #fff
+  }
 }
 image {
   width 100%
