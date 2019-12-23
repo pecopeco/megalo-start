@@ -56,7 +56,7 @@ Vue.prototype.$fly = new Fly()
 
 function request (url, form = {}, type) {
  // 拦截重复请求
-  if (requestUrl === url && isObjectValueEqual(requestForm, form)) {
+  if ((requestUrl === url && isObjectValueEqual(requestForm, form)) || (url === '/site/wx' && requestUrl === url)) {
     return
   }
   requestUrl = url
