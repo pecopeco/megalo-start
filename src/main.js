@@ -151,7 +151,8 @@ export default {
       ]
     },
     'usingComponents': {
-      'van-loading': '/native/vant/loading/index'
+      'van-loading': '/native/vant/loading/index',
+      'van-button': '/native/vant/button/index'
     }
   }
 }
