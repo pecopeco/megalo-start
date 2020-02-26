@@ -67,7 +67,8 @@ function request (url, form = {}, type) {
   //   orgName: 123456
   // }
   // Object.assign(compleForm, presetForm)
-  return Vue.prototype.$fly.request(config.api_url + url, compleForm, {
+  let transUrl = url.indexOf("http") !== -1 ? url : config.api_url + url
+  return Vue.prototype.$fly.request(transUrl, compleForm, {
     method: type,
     timeout: 5000
   }).then((res) => {
