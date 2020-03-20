@@ -44,7 +44,7 @@ export default {
   computed: {
   },
   mounted () {
-    this.getData()
+    // this.getData()
   }
 }
 </script>
@@ -53,6 +53,9 @@ export default {
 @import "~@/animate.css"
 
 .home {
+  .time {
+    text-align center
+  }
 }
 </style>
 
@@ -60,7 +63,7 @@ export default {
   {
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "title",
+    "navigationBarTitleText": "home",
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light"
   }

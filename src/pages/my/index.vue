@@ -1,6 +1,5 @@
 <template lang="pug">
   .my
-    span my
     .input-wrap
       .label 姓名
       input(
@@ -13,12 +12,7 @@
         v-model="phone"
         placeholder="请输入手机号"
       )
-    van-button(
-      type="primary"
-      @click="submit"
-    ) 提交
-    .content(v-if="data")
-    .empty-tips(v-else-if="!loading") 暂无信息
+    button.btn(@click="submit") 提交
     van-loading.loading(v-if="loading" type="circular" color="#1989fa")
 </template>
 
@@ -72,6 +66,21 @@ export default {
 <style scoped lang="stylus">
 
 .my {
+  .input-wrap {
+    display flex
+    padding 20px 20px 0
+    .label {
+      display flex
+      align-items center
+      width 70px
+    }
+    input {
+      padding 10px
+    }
+  }
+  .btn {
+    margin-top 20px
+  }
 }
 </style>
 
@@ -79,7 +88,7 @@ export default {
   {
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "title",
+    "navigationBarTitleText": "my",
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light"
   }

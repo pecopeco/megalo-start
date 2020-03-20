@@ -49,7 +49,7 @@ export default {
     }
   },
   onLaunch () {
-    this.checkSession()
+    // this.checkSession()
   }
 }
 </script>
