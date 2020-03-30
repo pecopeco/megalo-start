@@ -22,6 +22,7 @@
   "devDependencies": {
     "@megalo/babel-preset-app": "latest",
     "@megalo/cli-plugin-eslint": "latest",
+    "@megalo/cli-plugin-flx-es6-to-es5": "^1.0.0-beta.2",
     "@megalo/cli-service": "latest",
     "@megalo/eslint-config-standard": "latest",
     "@megalo/target": "latest",
