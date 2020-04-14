@@ -55,19 +55,19 @@ function isObjectValueEqual (objA, objB) {
 Vue.prototype.$fly = new Fly()
 
 function request (url, form = {}, type) {
- // 拦截重复请求
+  // 拦截重复请求
   if ((requestUrl === url && isObjectValueEqual(requestForm, form)) || (url === '/site/wx' && requestUrl === url)) {
     return
   }
   requestUrl = url
   requestForm = JSON.parse(JSON.stringify(form))
-  
+
   let compleForm = form
   // let presetForm = {
   //   orgName: 123456
   // }
   // Object.assign(compleForm, presetForm)
-  let transUrl = url.indexOf("http") !== -1 ? url : config.api_url + url
+  let transUrl = url.indexOf('http') !== -1 ? url : config.api_url + url
   return Vue.prototype.$fly.request(transUrl, compleForm, {
     method: type,
     timeout: 10000
@@ -78,7 +78,7 @@ function request (url, form = {}, type) {
     } else if (res.status === 200) {
       return res.data
     } else {
-      wx.showToast({ title: JSON.parse(res.data).error.msg, icon: 'none', duration: 2000 })
+      Megalo.showToast({ title: JSON.parse(res.data).error.msg, icon: 'none', duration: 2000 })
     }
   }).catch((err) => {
     delayRequest()
@@ -105,7 +105,7 @@ function request (url, form = {}, type) {
     }
     if (err.status >= 300) {
       const errortext = codeMessage[err.status] || err.response.statusText
-      wx.showToast({ title: errortext, icon: 'none', duration: 2000 })
+      Megalo.showToast({ title: errortext, icon: 'none', duration: 2000 })
     }
   })
 }
@@ -150,10 +150,6 @@ export default {
           selectedIconPath: 'native/tabbar/mine_on.png'
         }
       ]
-    },
-    'usingComponents': {
-      'van-loading': '/native/vant/loading/index',
-      'van-button': '/native/vant/button/index'
     }
   }
 }

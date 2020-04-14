@@ -32,7 +32,7 @@ export default {
     },
     toast (text, delay) {
       setTimeout(function () {
-        wx.showToast({ title: text, icon: 'none', duration: delay || 2000 })
+        Megalo.showToast({ title: text, icon: 'none', duration: delay || 2000 })
       }, 100)
     },
     postUserInfo (userInfo) {
@@ -50,19 +50,22 @@ export default {
         }
         // 验证非空
         if (!item.key || item.key.match(/^[ ]+$/)) {
-          return err = '请填写' + item.name
+          err = '请填写' + item.name
+          return
         }
         // 验证姓名
         if (item.type === 'name' && (!/^[\u4e00-\u9fa5]+$/.test(item.key) || item.key.length < 2)) {
-          return err = '请输入正确的' + item.name
+          err = '请输入正确的' + item.name
+          return
         }
         // 验证手机号
         if (item.type === 'phone' && !(item.key.length === 11 && /^((13|14|15|17|18)[0-9]{1}\d{8})$/.test(item.key))) {
-          return err = '请输入正确的' + item.name
+          err = '请输入正确的' + item.name
+          return
         }
         // 验证身份证号
         if (item.type === 'idCard' && !/^\d{6}(19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|X)$/i.test(item.key)) {
-          return err = '请输入正确的' + item.name
+          err = '请输入正确的' + item.name
         }
       })
       return err

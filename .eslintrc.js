@@ -5,8 +5,7 @@ module.exports = {
     node: true
   },
   'extends': [
-    'plugin:vue/essential',
-    'eslint:recommended'
+    '@megalo/standard'
   ],
   "rules": {
     "no-console":"off"

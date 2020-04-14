@@ -13,7 +13,6 @@
         placeholder="请输入手机号"
       )
     button.btn(@click="submit") 提交
-    van-loading.loading(v-if="loading" type="circular" color="#1989fa")
 </template>
 
 <script>

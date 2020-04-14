@@ -1,9 +1,8 @@
 <template lang="pug">
   .home
-    .card-wrap.animated.slideInUp.faster(@click="getData")
+    .card-wrap(@click="getData")
       card(:text="text")
     .time.theme {{time | formatTime('/', '/', '', true, true)}}
-    van-loading.loading(type="circular" color="#1989fa")
     button(@getuserinfo="getUserInfo" open-type="getUserInfo") 登录
 </template>
 
@@ -50,7 +49,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import "~@/animate.css"
 
 .home {
   .time {
