@@ -59,7 +59,7 @@ export default {
 page {
   height 100%
   color #555555
-  font-size 16px
+  font-size 14px
   overflow auto
   & > div {
     min-height 100%
@@ -72,6 +72,9 @@ image {
 }
 .theme {
   color theme
+}
+.red {
+  color red
 }
 .font-gray {
   color fontGray
