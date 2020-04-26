@@ -76,7 +76,7 @@ image {
 .red {
   color red
 }
-.font-gray {
+.gray {
   color fontGray
 }
 .bold {
