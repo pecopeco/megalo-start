@@ -16,7 +16,11 @@ export default {
   methods: {
     checkLeft () {
       if (this.backPath) {
-        this.go(this.backPath)
+        let isTab = false
+        if (this.backPath === '/pages/home/index' || this.backPath === '/pages/my/index') {
+          isTab = true
+        }
+        this.go({ path: this.backPath, isTab: isTab })
       } else {
         this.goBack()
       }
