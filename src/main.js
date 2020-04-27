@@ -128,11 +128,11 @@ export default {
       'pages/my/index'
     ],
     window: {
-      backgroundTextStyle: 'light',
       navigationStyle: 'custom',
+      backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'title',
-      navigationBarTextStyle: 'black'
+      navigationBarTextStyle: 'white'
     },
     tabBar: {
       color: '#333',

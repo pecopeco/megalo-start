@@ -62,12 +62,3 @@ export default {
   }
 }
 </style>
-
-<config>
-  {
-    "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTextStyle": "white",
-    "backgroundColor": "#eeeeee",
-    "backgroundTextStyle": "light"
-  }
-</config>
