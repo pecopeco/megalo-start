@@ -1,17 +1,21 @@
 <template lang="pug">
   .home
-    .card-wrap(@click="getData")
-      card(:text="text")
-    .time.theme {{time | formatTime('/', '/', '', true, true)}}
-    button(@getuserinfo="getUserInfo" open-type="getUserInfo") 登录
+    navigation(title="首页" :hideLeft="true")
+    .main-wrap
+      .card-wrap(@click="getData")
+        card(:text="text")
+      .time.theme {{time | formatTime('/', '/', '', true, true)}}
+      button(@getuserinfo="getUserInfo" open-type="getUserInfo") 登录
 </template>
 
 <script>
 import card from '@/components/card'
+import navigation from '@/components/navigation'
 
 export default {
   components: {
-    card
+    card,
+    navigation
   },
   data () {
     return {
@@ -27,10 +31,10 @@ export default {
     },
     getUserInfo () {
       // 授权检测
-      wx.getSetting({
+      Megalo.getSetting({
         success: (res) => {
           if (res.authSetting['scope.userInfo']) {
-            wx.getUserInfo({
+            Megalo.getUserInfo({
               success: (res) => {
                 this.postUserInfo(res.userInfo)
               }
@@ -51,8 +55,10 @@ export default {
 <style scoped lang="stylus">
 
 .home {
-  .time {
-    text-align center
+  .main-wrap {
+    .time {
+      text-align center
+    }
   }
 }
 </style>
@@ -60,8 +66,7 @@ export default {
 <config>
   {
     "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "home",
+    "navigationBarTextStyle": "white",
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light"
   }

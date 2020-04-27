@@ -1,24 +1,28 @@
 <template lang="pug">
   .my
-    .input-wrap
-      .label 姓名
-      input(
-        v-model="name"
-        placeholder="请输入姓名"
-      )
-    .input-wrap
-      .label 手机号
-      input(
-        v-model="phone"
-        placeholder="请输入手机号"
-      )
-    button.btn(@click="submit") 提交
+    navigation(title="我的" :hideLeft="true")
+    .main-wrap
+      .input-wrap
+        .label 姓名
+        input(
+          v-model="name"
+          placeholder="请输入姓名"
+        )
+      .input-wrap
+        .label 手机号
+        input(
+          v-model="phone"
+          placeholder="请输入手机号"
+        )
+      button.btn(@click="submit") 提交
 </template>
 
 <script>
+import navigation from '@/components/navigation'
 
 export default {
   components: {
+    navigation
   },
   data () {
     return {
@@ -65,20 +69,22 @@ export default {
 <style scoped lang="stylus">
 
 .my {
-  .input-wrap {
-    display flex
-    padding 20px 20px 0
-    .label {
+  .main-wrap {
+    .input-wrap {
       display flex
-      align-items center
-      width 70px
+      padding 20px 20px 0
+      .label {
+        display flex
+        align-items center
+        width 70px
+      }
+      input {
+        padding 10px
+      }
     }
-    input {
-      padding 10px
+    .btn {
+      margin-top 20px
     }
-  }
-  .btn {
-    margin-top 20px
   }
 }
 </style>
@@ -86,8 +92,7 @@ export default {
 <config>
   {
     "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "my",
+    "navigationBarTextStyle": "white",
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light"
   }

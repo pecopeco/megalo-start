@@ -76,6 +76,9 @@ export default {
     }
   },
   computed: {
+    statusBarHeight () {
+      return this.$store.state.statusBarHeight
+    },
     userInfo () {
       return this.$store.state.userInfo
     },

@@ -10,15 +10,15 @@ export default {
   methods: {
     checkSession () {
       // 首次登录
-      if (!wx.getStorageSync('token')) {
+      if (!Megalo.getStorageSync('token')) {
         console.log('首次登录')
         this.doLogin()
         return
       }
       // 检查 session_key 是否过期
-      wx.checkSession({
+      Megalo.checkSession({
         success: () => {
-          this.setCookie(wx.getStorageSync('token'))
+          this.setCookie(Megalo.getStorageSync('token'))
         },
         fail: () => {
           console.log('skey过期，重新登录')
@@ -28,7 +28,7 @@ export default {
     },
     doLogin () {
       // 获取code，换取skey
-      wx.login({
+      Megalo.login({
         success: res => {
           this.fetchSkey(res.code)
         },
@@ -40,15 +40,23 @@ export default {
     async fetchSkey (code) {
       let data = await this.$http.get('/site/wx', { code: code })
       if (data && data.skey) {
-        wx.setStorageSync('token', data.skey)
+        Megalo.setStorageSync('token', data.skey)
         this.setCookie(data.skey)
       }
     },
     setCookie (token) {
       this.$fly.config.headers = { 'cookie': 'PHPSESSION=' + token }
+    },
+    getStatusBarHeight () {
+      Megalo.getSystemInfo({
+        success: (res) => {
+          this.$store.dispatch('setStatusBarHeight', res.statusBarHeight)
+        }
+      })
     }
   },
   onLaunch () {
+    this.getStatusBarHeight()
     // this.checkSession()
   }
 }
@@ -65,6 +73,9 @@ page {
     min-height 100%
     background #fff
   }
+}
+.main-wrap {
+  padding-top 65px
 }
 image {
   width 100%

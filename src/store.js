@@ -6,10 +6,14 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   strict: true,
   state: {
+    statusBarHeight: '',
     missingSkey: false,
     userInfo: ''
   },
   actions: {
+    setStatusBarHeight: ({ commit }, data) => {
+      commit('setStatusBarHeight', data)
+    },
     setUser: ({ commit }, data) => {
       commit('setUser', data)
     },
@@ -18,6 +22,9 @@ const store = new Vuex.Store({
     }
   },
   mutations: {
+    setStatusBarHeight (state, data) {
+      state.statusBarHeight = data
+    },
     setUser (state, data) {
       state.userInfo = data
     },
