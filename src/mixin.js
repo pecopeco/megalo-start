@@ -67,6 +67,10 @@ export default {
         if (item.type === 'idCard' && !/^\d{6}(19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|X)$/i.test(item.key)) {
           err = '请输入正确的' + item.name
         }
+        // 验证金额
+        if (item.type === 'price' && ((!Number.isFinite(Number(item.key)) || Number(item.key) <= 0) || (item.key.split('.')[1] && item.key.split('.')[1].length > 2))) {
+          err = '请输入正确的' + item.name
+        }
       })
       return err
     },

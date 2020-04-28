@@ -46,6 +46,8 @@ export default {
   background theme
   z-index 98
   .left {
+    display flex
+    align-items center
     width 30px
   }
   .center {
