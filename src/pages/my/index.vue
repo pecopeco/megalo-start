@@ -1,7 +1,7 @@
 <template lang="pug">
   .my
     navigation(title="我的" :hideLeft="true")
-    .main-wrap
+    .main-wrap(:style="{paddingTop: statusBarHeight + 45 + 'px'}")
       .input-wrap
         .label 姓名
         input(

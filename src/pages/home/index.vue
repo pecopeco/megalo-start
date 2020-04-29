@@ -1,7 +1,7 @@
 <template lang="pug">
   .home
     navigation(title="首页" :hideLeft="true")
-    .main-wrap
+    .main-wrap(:style="{paddingTop: statusBarHeight + 45 + 'px'}")
       .card-wrap(@click="getData")
         card(:text="text")
       .time.theme {{time | formatTime('/', '/', '', true, true)}}
