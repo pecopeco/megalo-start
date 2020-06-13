@@ -1,6 +1,7 @@
 # megalo-start
 
-> 小程序模板，使用 megalo 框架搭建，包含 pug、stylus、fly、vuex 等组件
+开启上传代码时样式自动补全
+关闭代码压缩上传，开启可能报错
 
 ## 安装
 ```

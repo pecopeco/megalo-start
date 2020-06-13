@@ -18,7 +18,7 @@ export default {
       // 检查 session_key 是否过期
       Megalo.checkSession({
         success: () => {
-          this.setCookie(Megalo.getStorageSync('token'))
+          console.log('未过期')
         },
         fail: () => {
           console.log('skey过期，重新登录')
@@ -38,19 +38,15 @@ export default {
       })
     },
     async fetchSkey (code) {
-      let data = await this.$http.get('/site/wx', { code: code })
+      let data = await this.http.get('/site/wx', { code: code })
       if (data && data.skey) {
         Megalo.setStorageSync('token', data.skey)
-        this.setCookie(data.skey)
       }
-    },
-    setCookie (token) {
-      this.$fly.config.headers = { 'cookie': 'PHPSESSION=' + token }
     },
     getStatusBarHeight () {
       Megalo.getSystemInfo({
         success: (res) => {
-          this.$store.dispatch('setStatusBarHeight', res.statusBarHeight)
+          this.store.dispatch('setStatusBarHeight', res.statusBarHeight)
         }
       })
     }

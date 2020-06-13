@@ -26,8 +26,8 @@ export default {
   methods: {
     async getData () {
       console.log('start get')
-      let data = await this.$http.get('/search', { id: 1 })
-      this.$store.dispatch('setUser', data || '')
+      let data = await this.http.get('/search', { id: 1 })
+      this.store.dispatch('setUser', data || '')
     },
     getUserInfo () {
       // 授权检测
