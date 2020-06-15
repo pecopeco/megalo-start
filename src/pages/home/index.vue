@@ -5,21 +5,23 @@
       card(:text="text")
     .time.theme {{time | formatTime('/', '/', '', true, true)}}
     button(@getuserinfo="getUserInfo" open-type="getUserInfo") 登录
+    loading(v-if="loading")
 </template>
 
 <script>
-import card from '@/components/card'
+import loading from '@/components/loading'
 import navigation from '@/components/navigation'
 
 export default {
   components: {
-    card,
+    loading,
     navigation
   },
   data () {
     return {
       text: '123',
-      time: 1566274478
+      time: 1566274478,
+      loading: false
     }
   },
   methods: {

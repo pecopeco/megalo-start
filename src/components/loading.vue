@@ -1,27 +1,34 @@
 <template lang="pug">
-  .card
-    .text {{text}}
-    image(mode="scaleToFill" src="/static/images/user.png")
+  .loading
+    image(mode="widthFix" src="/static/images/loading.gif")
 </template>
 
 <script>
+
 export default {
   props: {
-    text: ''
+  },
+  components: {
+  },
+  data () {
+  },
+  methods: {
+  },
+  mounted () {
   }
 }
 </script>
 
 <style scoped lang="stylus">
 
-.card {
+.loading {
   display flex
   align-items center
   justify-content center
-  padding 10px
+  width 100%
+  height 140px
   image {
-    width 100px
-    height 100px
+    width 26px
   }
 }
 </style>
