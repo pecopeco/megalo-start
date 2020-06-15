@@ -53,6 +53,10 @@ export default {
   },
   onLaunch () {
     this.getStatusBarHeight()
+    // 版本更新
+    this.update()
+    // 网络监测
+    this.netListen()
     // this.checkSession()
   }
 }

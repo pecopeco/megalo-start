@@ -3,6 +3,9 @@ const store = require('./store.js').default
 
 let fly = new Fly()
 let requestUrl, requestForm
+let config = {
+  api: 'https://mp.weixin.qq.com'
+}
 
 export default {
   components: {
@@ -58,7 +61,7 @@ export default {
       //   orgName: 123456
       // }
       // Object.assign(compleForm, presetForm)
-      let transUrl = url.indexOf('http') !== -1 ? url : 'https://mp.weixin.qq.com' + url
+      let transUrl = url.indexOf('http') !== -1 ? url : this.config.api + url
       return fly.request(transUrl, compleForm, {
         method: type,
         headers: {
@@ -174,12 +177,56 @@ export default {
       })
       return err
     },
+    update () {
+      const updateManager = wx.getUpdateManager()
+      updateManager.onCheckForUpdate(function (res) {
+        // 请求完新版本信息的回调
+        console.log('是否有版本更新：', res.hasUpdate)
+      })
+      updateManager.onUpdateReady(function () {
+        Megalo.showModal({
+          title: '更新提示',
+          content: '新版本已经准备好，是否重启应用？',
+          success (res) {
+            if (res.confirm) {
+              // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
+              updateManager.applyUpdate()
+            }
+          }
+        })
+      })
+      updateManager.onUpdateFailed(function () {
+        // 新版本下载失败
+        Megalo.showToast({
+          title: '更新版本失败！',
+          icon: 'none'
+        })
+      })
+    },
+    netListen () {
+      Megalo.onNetworkStatusChange((res) => {
+        if (res.networkType === 'none') {
+          Megalo.showToast({
+            title: '网络出问题了哦...',
+            icon: 'none'
+          })
+        } else {
+          Megalo.showToast({
+            title: `已连接上网络`,
+            icon: 'none'
+          })
+        }
+      })
+    },
     // 手机号验证
     isPhone (key) {
       return !(key.length === 11 && /^((13|14|15|17|18)[0-9]{1}\d{8})$/.test(key))
     }
   },
   computed: {
+    config () {
+      return config
+    },
     statusBarHeight () {
       return this.store.state.statusBarHeight
     },
