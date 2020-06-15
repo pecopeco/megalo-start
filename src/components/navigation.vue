@@ -1,9 +1,10 @@
 <template lang="pug">
-  .navigation(:style="{paddingTop: statusBarHeight + 'px'}")
-    .left
-      image(v-if="!hideLeft" mode="widthFix" src="/static/images/left.png" @click="checkLeft")
-    .center {{title}}
-    .right
+  .navigation-wrap(:style="{height: statusBarHeight + 44 + 'px'}")
+    .navigation(:style="{paddingTop: statusBarHeight + 'px', height: '44px', lineHeight: '44px'}")
+      .left
+        image(v-if="!hideLeft" mode="widthFix" src="/static/images/left.png" @click="checkLeft")
+      .center {{title}}
+      .right
 </template>
 
 <script>
@@ -41,7 +42,6 @@ export default {
   align-items center
   justify-content space-between
   width 100%
-  height 45px
   padding 0 10px
   background theme
   z-index 98

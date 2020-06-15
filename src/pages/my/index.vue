@@ -1,20 +1,19 @@
 <template lang="pug">
   .my
     navigation(title="我的" :hideLeft="true")
-    .main-wrap(:style="{paddingTop: statusBarHeight + 45 + 'px'}")
-      .input-wrap
-        .label 姓名
-        input(
-          v-model="name"
-          placeholder="请输入姓名"
-        )
-      .input-wrap
-        .label 手机号
-        input(
-          v-model="phone"
-          placeholder="请输入手机号"
-        )
-      button.btn(@click="submit") 提交
+    .input-wrap
+      .label 姓名
+      input(
+        v-model="name"
+        placeholder="请输入姓名"
+      )
+    .input-wrap
+      .label 手机号
+      input(
+        v-model="phone"
+        placeholder="请输入手机号"
+      )
+    button.btn(@click="submit") 提交
 </template>
 
 <script>
@@ -61,7 +60,7 @@ export default {
   },
   computed: {
   },
-  mounted () {
+  onShow () {
   }
 }
 </script>

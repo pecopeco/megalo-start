@@ -1,11 +1,10 @@
 <template lang="pug">
   .home
-    navigation(title="首页" :hideLeft="true")
-    .main-wrap(:style="{paddingTop: statusBarHeight + 45 + 'px'}")
-      .card-wrap(@click="getData")
-        card(:text="text")
-      .time.theme {{time | formatTime('/', '/', '', true, true)}}
-      button(@getuserinfo="getUserInfo" open-type="getUserInfo") 登录
+    navigation(title="首页" :hideLeft="true")x
+    .card-wrap(@click="getData")
+      card(:text="text")
+    .time.theme {{time | formatTime('/', '/', '', true, true)}}
+    button(@getuserinfo="getUserInfo" open-type="getUserInfo") 登录
 </template>
 
 <script>
