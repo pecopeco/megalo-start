@@ -1,6 +1,6 @@
 <template lang="pug">
   .navigation-wrap(:style="{height: statusBarHeight + 44 + 'px'}")
-    .navigation(:style="{paddingTop: statusBarHeight + 'px', height: '44px', lineHeight: '44px'}")
+    .navigation(:style="{paddingTop: statusBarHeight + 'px', height: '44px', background: back, lineHeight: '44px'}")
       .left
         image(v-if="!hideLeft" mode="widthFix" src="/static/images/left.png" @click="checkLeft")
       .center {{title}}
@@ -12,6 +12,10 @@ export default {
   props: {
     title: '',
     hideLeft: false,
+    back: {
+      type: String,
+      default: '#fff'
+    },
     backPath: ''
   },
   methods: {
