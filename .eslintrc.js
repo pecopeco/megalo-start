@@ -8,7 +8,9 @@ module.exports = {
     '@megalo/standard'
   ],
   "rules": {
-    "no-console":"off"
+    "no-console":"off",
+    "eqeqeq": "off",
+    "object-curly-spacing": "off"
   },
   parserOptions: {
     parser: 'babel-eslint'

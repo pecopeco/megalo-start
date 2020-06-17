@@ -1,17 +1,28 @@
 <template lang="pug">
   .navigation-wrap(:style="{height: statusBarHeight + 44 + 'px'}")
-    .navigation(:style="{paddingTop: statusBarHeight + 'px', height: '44px', background: back, lineHeight: '44px'}")
+    .navigation(:style="{paddingTop: statusBarHeight + 'px', background: back, height: '44px', lineHeight: '44px'}")
       .left
         image(v-if="!hideLeft" mode="widthFix" src="/static/images/left.png" @click="checkLeft")
-      .center {{title}}
+      .center
+        image(v-if="loading" mode="widthFix" src="/static/images/title_loading.gif")
+        span {{title}}
       .right
+    .loading
+      image(mode="widthFix" src="/static/images/top_loading.gif")
 </template>
 
 <script>
+
 export default {
+  components: {
+  },
   props: {
     title: '',
     hideLeft: false,
+    loading: {
+      type: Boolean,
+      default: false
+    },
     back: {
       type: String,
       default: '#fff'
@@ -38,27 +49,48 @@ export default {
 
 <style scoped lang="stylus">
 
-.navigation {
-  position fixed
-  top 0
-  left 0
-  display flex
-  align-items center
-  justify-content space-between
-  width 100%
-  padding 0 10px
-  background theme
-  z-index 98
-  .left {
+.navigation-wrap {
+  .navigation {
+    position fixed
+    top 0
+    left 0
     display flex
     align-items center
-    width 30px
+    justify-content space-between
+    width 100%
+    padding 0 10px
+    z-index 98
+    .left {
+      display flex
+      align-items center
+      width 30px
+    }
+    .center {
+      display flex
+      align-items center
+      justify-content center
+      width 80px
+      color #000
+      image {
+        width 12px
+        margin-right 5px
+      }
+    }
+    .right {
+      width 30px
+    }
   }
-  .center {
-    color #fff
-  }
-  .right {
-    width 30px
+  .loading {
+    position relative
+    display flex
+    align-items center
+    justify-content center
+    width 100%
+    height 100%
+    padding-top 10px
+    image {
+      width 80px
+    }
   }
 }
 </style>
