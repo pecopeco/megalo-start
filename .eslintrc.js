@@ -10,7 +10,9 @@ module.exports = {
   "rules": {
     "no-console":"off",
     "eqeqeq": "off",
-    "object-curly-spacing": "off"
+    "object-curly-spacing": "off",
+    "spaced-comment": "off",
+    "no-multi-spaces": "off"
   },
   parserOptions: {
     parser: 'babel-eslint'
