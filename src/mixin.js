@@ -162,7 +162,7 @@ export default {
           return
         }
         // 验证手机号
-        if (item.type === 'phone' && !(item.key.length === 11 && /^((13|14|15|17|18)[0-9]{1}\d{8})$/.test(item.key))) {
+        if (item.type === 'phone' && !(item.key.length === 11 && /^((13|14|15|16|17|18|19)[0-9]{1}\d{8})$/.test(item.key))) {
           err = '请输入正确的' + item.name
           return
         }
