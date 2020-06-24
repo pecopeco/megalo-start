@@ -36,8 +36,12 @@ export default {
     go (path) {
       this.$router.push(path)
     },
-    goBack () {
-      this.$router.back()
+    goBack (key) {
+      if (key) {
+        this.$router.go(key)
+      } else {
+        this.$router.back()
+      }
     },
     toast (text, delay) {
       setTimeout(function () {
