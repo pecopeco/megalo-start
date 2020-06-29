@@ -1,6 +1,6 @@
 <template lang="pug">
   .home
-    navigation(title="首页" :hideLeft="true")x
+    navigation(title="首页" :hideLeft="true")
     .card-wrap(@click="getData")
       card(:text="text")
     .time.theme {{time | formatTime('/', '/', '', true, true)}}
