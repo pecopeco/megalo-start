@@ -24,6 +24,8 @@ export default {
       loading: false
     }
   },
+  computed: {
+  },
   methods: {
     async getData () {
       console.log('start get')
@@ -45,10 +47,11 @@ export default {
       })
     }
   },
-  computed: {
+  onPullDownRefresh () {
+    this.getData()
   },
   mounted () {
-    // this.getData()
+    this.getData()
   }
 }
 </script>
@@ -63,3 +66,9 @@ export default {
   }
 }
 </style>
+
+<config>
+{
+  "enablePullDownRefresh": true
+}
+</config>

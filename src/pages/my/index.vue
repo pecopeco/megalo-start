@@ -30,6 +30,8 @@ export default {
       phone: ''
     }
   },
+  computed: {
+  },
   methods: {
     async submit () {
       let err = this.validate([
@@ -57,8 +59,6 @@ export default {
         this.toast('提交成功')
       }
     }
-  },
-  computed: {
   },
   onShow () {
   }
