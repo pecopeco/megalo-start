@@ -47,9 +47,6 @@ export default {
       })
     }
   },
-  onPullDownRefresh () {
-    this.getData()
-  },
   mounted () {
     this.getData()
   }
@@ -66,9 +63,3 @@ export default {
   }
 }
 </style>
-
-<config>
-{
-  "enablePullDownRefresh": true
-}
-</config>
