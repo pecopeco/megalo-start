@@ -68,7 +68,6 @@ page {
   height 100%
   color #555555
   font-size 14px
-  overflow auto
   & > div {
     min-height 100%
     background #fff
