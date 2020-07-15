@@ -27,6 +27,7 @@
 import navigation from '@/components/navigation'
 
 export default {
+  name: 'my',
   components: {
     navigation
   },

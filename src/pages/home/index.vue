@@ -13,6 +13,7 @@ import loading from '@/components/loading'
 import navigation from '@/components/navigation'
 
 export default {
+  name: 'home',
   components: {
     loading,
     navigation
