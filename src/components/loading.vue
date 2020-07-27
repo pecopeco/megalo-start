@@ -28,8 +28,5 @@ export default {
   justify-content center
   width 100%
   height 140px
-  image {
-    width 26px
-  }
 }
 </style>
