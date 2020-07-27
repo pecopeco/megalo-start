@@ -46,11 +46,7 @@ export default {
     async getCode () {
       if (this.timer > 0) return
       let err = this.validate([
-        {
-          key: this.phone,
-          type: 'phone',
-          name: '手机号'
-        }
+        {key: this.phone, type: 'phone', name: '手机号'}
       ])
       if (err) {
         return this.toast(err)
