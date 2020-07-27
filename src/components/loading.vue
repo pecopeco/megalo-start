@@ -1,6 +1,6 @@
 <template lang="pug">
   .loading
-    image(mode="widthFix" src="/static/images/loading.gif")
+    van-loading(type="circular" size="24px" color="#1989fa")
 </template>
 
 <script>

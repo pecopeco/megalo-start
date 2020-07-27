@@ -50,6 +50,15 @@ export default {
           selectedIconPath: 'native/tabbar/mine_on.png'
         }
       ]
+    },
+    networkTimeout: {
+      request: 120000,
+      downloadFile: 120000,
+      connectSocket: 10000,
+      uploadFile: 120000
+    },
+    usingComponents: {
+      'van-loading': 'native/vant/loading/index'
     }
   }
 }
