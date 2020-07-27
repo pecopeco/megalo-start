@@ -63,6 +63,7 @@ export default {
 </script>
 
 <style lang="stylus">
+@import "~@/animate.css"
 
 page {
   height 100%
@@ -91,6 +92,9 @@ image {
 }
 .bold {
   font-weight bold
+}
+.fadeIn {
+  animation-duration 100ms
 }
 .empty-tips,.loading {
   display flex
