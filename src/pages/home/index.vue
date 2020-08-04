@@ -64,3 +64,9 @@ export default {
   }
 }
 </style>
+
+<config>
+{
+  "navigationBarTitleText": "首页"
+}
+</config>

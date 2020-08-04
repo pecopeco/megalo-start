@@ -141,3 +141,12 @@ export default {
   }
 }
 </style>
+
+<config>
+{
+  "navigationBarTitleText": "我的",
+  "usingComponents": {
+    "textarea": "../../native/textarea/index"
+  }
+}
+</config>
