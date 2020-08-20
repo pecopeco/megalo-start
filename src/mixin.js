@@ -56,7 +56,7 @@ export default {
     http (url, form = {}, type) {
       // 拦截重复请求
       if ((requestUrl === url && this.isObjectValueEqual(requestForm, form)) || (url === '/site/wx' && requestUrl === url)) {
-        return
+        return '重复请求'
       }
       requestUrl = url
       requestForm = JSON.parse(JSON.stringify(form))
