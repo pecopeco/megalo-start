@@ -5,18 +5,22 @@
       card(:text="text")
     .time.theme {{time | formatTime('/', '/', '', true, true)}}
     button(@getuserinfo="getUserInfo" open-type="getUserInfo") 登录
+    button.btn(@click="toast('发出的请求有错误发出的请求有错误，服务器没有进行新建或修改数据的操作，服务器没有进行新建或修改数据的操作')") toast
     loading(v-if="loading")
+    toast
 </template>
 
 <script>
 import loading from '@/components/loading'
 import navigation from '@/components/navigation'
+import toast from '@/components/toast'
 
 export default {
   name: 'home',
   components: {
     loading,
-    navigation
+    navigation,
+    toast
   },
   data () {
     return {
@@ -57,10 +61,11 @@ export default {
 <style scoped lang="stylus">
 
 .home {
-  .main-wrap {
-    .time {
-      text-align center
-    }
+  .time {
+    text-align center
+  }
+  .btn {
+    margin-top 30px
   }
 }
 </style>

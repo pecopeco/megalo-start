@@ -43,10 +43,20 @@ export default {
         this.$router.back()
       }
     },
-    toast (text, delay) {
-      setTimeout(function () {
-        Megalo.showToast({ title: text, icon: 'none', duration: delay || 1000 })
-      }, 100)
+    toast (text) {
+      if (this.toastObj.showToast) {
+        return
+      }
+      store.dispatch('setToastStatus', false)
+      store.dispatch('setToastClass', 'bounceIn')
+      store.dispatch('setToastText', text)
+      store.dispatch('setToastStatus', true)
+      setTimeout(() => {
+        store.dispatch('setToastClass', 'zoomOut')
+        setTimeout(() => {
+          store.dispatch('setToastStatus', false)
+        }, 400)
+      }, 1200)
     },
     postUserInfo (userInfo) {
       this.http.post('/v1/profile/profile', {
@@ -268,6 +278,9 @@ export default {
     },
     missingSkey () {
       return this.store.state.missingSkey
+    },
+    toastObj () {
+      return this.store.state.toastObj
     }
   },
   watch: {
