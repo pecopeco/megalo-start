@@ -71,7 +71,7 @@ page {
   font-size 14px
   & > div {
     min-height 100%
-    background #fff
+    background backGray
   }
 }
 .main-wrap {

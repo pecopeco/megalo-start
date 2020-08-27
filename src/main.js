@@ -28,14 +28,13 @@ export default {
     ],
     window: {
       navigationStyle: 'custom',
-      backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'title',
-      navigationBarTextStyle: 'white'
+      navigationBarTextStyle: 'black'
     },
     tabBar: {
       color: '#333',
       selectedColor: '#007d37',
+      borderStyle: 'white',
       list: [
         {
           pagePath: 'pages/home/index',

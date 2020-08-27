@@ -1,14 +1,11 @@
 <template lang="pug">
   .navigation-wrap(:style="{height: statusBarHeight + 44 + 'px'}")
-    .navigation(:style="{paddingTop: statusBarHeight + 'px', background: back, height: '44px', lineHeight: '44px'}")
+    .navigation(:style="{paddingTop: statusBarHeight + 'px', height: '44px', lineHeight: '44px'}")
       .left
         image(v-if="!hideLeft" mode="widthFix" src="/static/images/left.png" @click="checkLeft")
       .center
-        image(v-if="loading" mode="widthFix" src="/static/images/title_loading.gif")
         span {{title}}
       .right
-    .loading
-      image(mode="widthFix" src="/static/images/top_loading.gif")
 </template>
 
 <script>
@@ -61,6 +58,7 @@ export default {
     width 100%
     padding 0 10px
     z-index 98
+    background #fff
     .left {
       display flex
       align-items center
@@ -72,25 +70,9 @@ export default {
       justify-content center
       width 80px
       color #000
-      image {
-        width 12px
-        margin-right 5px
-      }
     }
     .right {
       width 30px
-    }
-  }
-  .loading {
-    position relative
-    display flex
-    align-items center
-    justify-content center
-    width 100%
-    height 100%
-    padding-top 10px
-    image {
-      width 80px
     }
   }
 }
