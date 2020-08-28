@@ -1,8 +1,6 @@
 <template lang="pug">
   .home
     navigation(title="首页" :hideLeft="true")
-    .card-wrap(@click="getData")
-      card(:text="text")
     .time.theme {{time | formatTime('/', '/', '', true, true)}}
     button(@getuserinfo="getUserInfo" open-type="getUserInfo") 登录
     button.btn(@click="toast('发出的请求有错误发出的请求有错误，服务器没有进行新建或修改数据的操作，服务器没有进行新建或修改数据的操作')") toast
