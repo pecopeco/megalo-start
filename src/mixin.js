@@ -43,7 +43,7 @@ export default {
         this.$router.back()
       }
     },
-    toast (text) {
+    toast (text, delay = 1200) {
       if (this.toastObj.showToast) {
         return
       }
@@ -56,7 +56,7 @@ export default {
         setTimeout(() => {
           store.dispatch('setToastStatus', false)
         }, 400)
-      }, 1200)
+      }, delay)
     },
     postUserInfo (userInfo) {
       this.http.post('/v1/profile/profile', {
