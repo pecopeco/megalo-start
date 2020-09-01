@@ -8,12 +8,7 @@ const store = new Vuex.Store({
   state: {
     statusBarHeight: '',
     missingSkey: false,
-    userInfo: '',
-    toastObj: {
-      showToast: false,
-      toastText: '',
-      toastClass: ''
-    }
+    userInfo: ''
   },
   actions: {
     setStatusBarHeight: ({ commit }, data) => {
@@ -24,15 +19,6 @@ const store = new Vuex.Store({
     },
     setSkeyStatus: ({ commit }) => {
       commit('setSkeyStatus')
-    },
-    setToastStatus: ({ commit }, data) => {
-      commit('setToastStatus', data)
-    },
-    setToastText: ({ commit }, data) => {
-      commit('setToastText', data)
-    },
-    setToastClass: ({ commit }, data) => {
-      commit('setToastClass', data)
     }
   },
   mutations: {
@@ -44,15 +30,6 @@ const store = new Vuex.Store({
     },
     setSkeyStatus (state) {
       state.missingSkey = !state.missingSkey
-    },
-    setToastStatus (state, data) {
-      state.toastObj.showToast = data
-    },
-    setToastText (state, data) {
-      state.toastObj.toastText = data
-    },
-    setToastClass (state, data) {
-      state.toastObj.toastClass = data
     }
   },
   getters: {}

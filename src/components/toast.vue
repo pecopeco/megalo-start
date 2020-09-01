@@ -1,7 +1,7 @@
 <template lang="pug">
-  .toast.animated.faster(v-show="toastObj.showToast" :class="toastObj.toastClass")
+  .toast.animated.faster(v-if="showToast" :class="toastClass")
     .toast-content
-      .text {{toastObj.toastText.length > 60 ? toastObj.toastText.slice(0, 60) + '...' : toastObj.toastText}}
+      .text {{toastText.length > 60 ? toastText.slice(0, 60) + '...' : toastText}}
 </template>
 
 <script>
@@ -14,11 +14,31 @@ export default {
   },
   data () {
     return {
+      showToast: false,
+      toastText: '',
+      toastClass: '',
+      animateTimer: '',
+      statusTimer: ''
     }
   },
   watch: {
   },
   methods: {
+    toast (text, delay = 1200) {
+      if (this.showToast) {
+        return
+      }
+      this.toastClass = 'bounceIn'
+      this.toastText = text
+      this.showToast = true
+      setTimeout(() => {
+        this.toastClass = 'zoomOut'
+        setTimeout(() => {
+          this.toastClass = ''
+          this.showToast = false
+        }, 400)
+      }, delay)
+    }
   },
   mounted () {
   }

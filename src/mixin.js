@@ -17,7 +17,7 @@ export default {
   filters: {
     formatTime (time, yearKey = '-', monthKey = '-', dayKey = '',
       hasHour, hasMinute) {
-      let date = new Date(time * 1000)
+      let date = new Date(time)
       let y = 1900 + date.getYear()
       let m = '0' + (date.getMonth() + 1)
       let d = '0' + date.getDate()
@@ -43,20 +43,8 @@ export default {
         this.$router.back()
       }
     },
-    toast (text, delay = 1200) {
-      if (this.toastObj.showToast) {
-        return
-      }
-      store.dispatch('setToastStatus', false)
-      store.dispatch('setToastClass', 'bounceIn')
-      store.dispatch('setToastText', text)
-      store.dispatch('setToastStatus', true)
-      setTimeout(() => {
-        store.dispatch('setToastClass', 'zoomOut')
-        setTimeout(() => {
-          store.dispatch('setToastStatus', false)
-        }, 400)
-      }, delay)
+    toast (text) {
+      this.$refs.toast.toast(text)
     },
     postUserInfo (userInfo) {
       this.http.post('/v1/profile/profile', {
@@ -156,6 +144,22 @@ export default {
         }
       }
       return true
+    },
+    formatTime (time, yearKey = '-', monthKey = '-', dayKey = '',
+      hasHour, hasMinute) {
+      let date = new Date(time)
+      let y = 1900 + date.getYear()
+      let m = '0' + (date.getMonth() + 1)
+      let d = '0' + date.getDate()
+      let hour = '0' + date.getHours()
+      let minute = '0' + date.getMinutes()
+      let resultTime = y + yearKey + m.substring(m.length - 2, m.length) + monthKey + d.substring(d.length - 2, d.length) + dayKey
+      if (hasHour && !hasMinute) {
+        return resultTime + ' ' + hour.substring(hour.length - 2, hour.length)
+      } else if (hasHour && hasMinute) {
+        return resultTime + ' ' + hour.substring(hour.length - 2, hour.length) + ':' + minute.substring(minute.length - 2, minute.length)
+      }
+      return resultTime
     },
     // 表单验证
     validate (arr) {
@@ -278,9 +282,6 @@ export default {
     },
     missingSkey () {
       return this.store.state.missingSkey
-    },
-    toastObj () {
-      return this.store.state.toastObj
     }
   },
   watch: {

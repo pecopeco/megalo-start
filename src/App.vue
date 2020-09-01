@@ -52,9 +52,6 @@ export default {
     }
   },
   onLaunch () {
-    wx.onAppRoute(() => {
-      this.store.dispatch('setToastStatus', false)
-    })
     this.getStatusBarHeight()
     // 版本更新
     this.update()
