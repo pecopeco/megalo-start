@@ -43,8 +43,8 @@ export default {
         this.$router.back()
       }
     },
-    toast (text) {
-      this.$refs.toast.toast(text)
+    toast (text, delay) {
+      Megalo.showToast({ title: text, icon: 'none', duration: delay || 1000 })
     },
     postUserInfo (userInfo) {
       this.http.post('/v1/profile/profile', {
@@ -164,7 +164,6 @@ export default {
     // 表单验证
     validate (arr) {
       let err
-      arr.reverse()
       arr.some((item) => {
         // 数字转换字符串
         if (typeof (item.key) === 'number') {
@@ -173,25 +172,27 @@ export default {
         // 验证非空
         if (!item.key || item.key.match(/^[ ]+$/)) {
           err = '请填写' + item.name
-          return
+          return true
         }
         // 验证姓名
         if (item.type === 'name' && (!/^[\u4e00-\u9fa5]+$/.test(item.key) || item.key.length < 2)) {
           err = '请输入正确的' + item.name
-          return
+          return true
         }
         // 验证手机号
         if (item.type === 'phone' && !(item.key.length === 11 && /^((13|14|15|16|17|18|19)[0-9]{1}\d{8})$/.test(item.key))) {
           err = '请输入正确的' + item.name
-          return
+          return true
         }
         // 验证身份证号
         if (item.type === 'idCard' && !/^\d{6}(19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|X)$/i.test(item.key)) {
           err = '请输入正确的' + item.name
+          return true
         }
         // 验证金额
         if (item.type === 'price' && ((!Number.isFinite(Number(item.key)) || Number(item.key) <= 0) || (item.key.split('.')[1] && item.key.split('.')[1].length > 2))) {
           err = '请输入正确的' + item.name
+          return true
         }
       })
       return err

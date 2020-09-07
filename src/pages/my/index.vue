@@ -69,20 +69,9 @@ export default {
     },
     async submit () {
       let err = this.validate([
-        {
-          key: this.name,
-          type: 'name',
-          name: '姓名'
-        },
-        {
-          key: this.phone,
-          type: 'phone',
-          name: '手机号'
-        },
-        {
-          key: this.code,
-          name: '验证码'
-        }
+        {key: this.name, type: 'name', name: '姓名'},
+        {key: this.phone, type: 'phone', name: '手机号'},
+        {key: this.code, name: '验证码'}
       ])
       if (err) {
         return this.toast(err)
